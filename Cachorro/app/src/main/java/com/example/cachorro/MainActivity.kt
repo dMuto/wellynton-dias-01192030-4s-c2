@@ -15,6 +15,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var dados: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun Comprar(view: View) {
+
+        val edit = dados.edit()
 
         val api = ConsumirApiCachorro.criar()
 
@@ -44,8 +47,12 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Cachorro>, response: Response<Cachorro>) {
                 if (response.code() == 200) {
                     val c1 = response.body()
-                    
 
+                    if (c1 != null) {
+                        edit.putString("raca1", c1.raca)
+                        edit.putFloat("valor1", c1.precoMedio.toFloat())
+                        edit.commit()
+                    }
 
                     val intent = Intent(applicationContext, Tela2::class.java)
                     startActivity(intent)
@@ -65,6 +72,14 @@ class MainActivity : AppCompatActivity() {
         api.getCachorro2(id2).enqueue(object : Callback<Cachorro>{
             override fun onResponse(call: Call<Cachorro>, response: Response<Cachorro>) {
                 if (response.code() == 200) {
+
+                    val c2= response.body()
+
+                    if (c2 != null) {
+                        edit.putString("raca2", c2.raca)
+                        edit.putFloat("valor2", c2.precoMedio.toFloat())
+                        edit.commit()
+                    }
 
                     val intent = Intent(applicationContext, Tela2::class.java)
                     startActivity(intent)
