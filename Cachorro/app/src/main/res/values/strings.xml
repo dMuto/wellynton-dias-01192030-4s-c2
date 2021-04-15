@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Cachorro</string>
+
+    <string name="botao_voltar">Voltar</string>
+
+    <string name="tela3">Deu ruim...Nenhum cachorro encontrado com os ids X e Y</string>
+
+    <string name="msg_tela1">Digite um numero</string>
+
+    <string name="comprar">Comprar Cachorros</string>
+
+    <string name="cachorro1">Cachorro 1:</string>
+    <string name="cachorro2">Cachorro 2:</string>
+
+    <string name="preco_Compra">Preço da compra: R$ </string>
+
+    <string name="nao_Encontrado">(Não encontrado)</string>
+
+    <string name="raca1">%1$s</string>
+    <string name="raca2">%1$s</string>
+
+
+
+</resources>
